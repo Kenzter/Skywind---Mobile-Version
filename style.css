@@ -387,9 +387,14 @@ h2 { font-size: 2rem; color: #044071; text-align: center; }
 .close-btn:active { transform: translateY(0); }
 
 @media (max-width: 480px) {
-  .modal { padding: 12px; align-items: flex-end; }
+  .modal {
+    padding: 12px;
+    align-items: flex-start;   /* anchor to top */
+    padding-top: 12vh;         /* push it into the upper-middle area */
+  }
   .modal-content { border-radius: 18px; }
 }
+
 
 
 /* ═══════════════════════════════════════════════════════════
