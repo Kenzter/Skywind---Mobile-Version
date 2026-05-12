@@ -315,8 +315,7 @@ h2 { font-size: 2rem; color: #044071; text-align: center; }
 .contact-info a { color: #555; text-decoration: none; transition: color 0.3s ease; }
 .contact-info a:hover { color: #764ba2; text-decoration: underline; }
 
-/* ── MODAL ───────────────────────────────────────────────── */
-/* ── MODAL ───────────────────────────────────────────────── */
+
 /* ── MODAL ───────────────────────────────────────────────── */
 .modal {
   display: none;
