@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Service - SKYWIND</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" src="booking-calendar.js"></script>
+</head>
+
+
+
+<body class="background-page">
+  <div class="loader">
+    <img src="skywindLogo.png" alt="Loading Logo">
+  </div>
+
+  <header>
+    <div class="logo-container">
+      <img src="skywindLogo.png" alt="Skywind Logo" class="logo">
+    </div>
+    <nav>
+      <span class="brand-name">SKYWIND AIRCONDITIONING & REFRIGERATION SERVICES</span>
+      <a href="booking.html">BOOK NOW</a>
+      <a href="services.html">SERVICES OFFERED</a>
+      <a href="about.html">ABOUT US</a>
+      <a href="contact.html">CONTACT US</a>
+    </nav>
+  </header>
+
+  <section class="content">
+    <h2>BOOK AN APPOINTMENT</h2>
+
+    <form id="booking-form">
+      <input type="text"  id="name"    placeholder="Full Name"    required>
+      <input type="email" id="email"   placeholder="Email"        required>
+      <input type="tel"   id="contact" placeholder="Phone Number" required>
+      <input type="text"  id="address" placeholder="Address"      required>
+
+      <label class="form-label" for="service">SELECTED SERVICE:</label>
+      <select id="service" required>
+        <option value="" disabled selected hidden>Select Service</option>
+        <option>Aircon Cleaning</option>
+        <option>Installation</option>
+        <option>Repair</option>
+        <option>Dismantle</option>
+        <option>Relocation</option>
+        <option>Refrigeration</option>
+        <option>Unit Check-Up</option>
+        <option>Others (Please specify in Note Box)</option>
+      </select>
+
+      <label class="form-label" for="units">NUMBER OF UNITS:</label>
+      <input type="number" id="units" min="1" value="1" required>
+
+      <label class="form-label" for="aircontype">AIRCON TYPE:</label>
+      <select id="aircontype" required>
+        <option value="" disabled selected hidden>Select Aircon Type</option>
+        <option>Window Type</option>
+        <option>Split Type</option>
+        <option>Cassette Type</option>
+        <option>Floor Mounted Type</option>
+        <option>Others (Please specify in Note Box)</option>
+      </select>
+
+      <label class="form-label" for="appointment-datetime">APPOINTMENT DATE & TIME:</label>
+      <input type="datetime-local" id="appointment-datetime" name="date_time" required>
+      <small style="color:#666; font-size:0.8em;">
+       Business hours: 6:00 AM – 4:30 PM (last slot, ends by 6:00 PM)
+      </small>
+
+      <label class="form-label" for="note"><br>NOTE BOX:</label>
+      <textarea id="note" placeholder="Additional Details"></textarea>
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <div class="success-icon">✔️</div>
+      <h3>Your Booking Form has been Sent!</h3>
+      <p>Your appointment is being reviewed.
+        <strong style="color: #18407c">For the approval of booking, WAIT and CHECK for your SMS appointment confirmation</strong>
+      </p>
+      <button class="close-btn" onclick="closeModal()">Got It!</button>
+    </div>
+  </div>
+
+  <!-- Mobile bottom tab bar -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span class="nav-icon">🏠</span>
+      <span>Home</span>
+    </a>
+    <a href="booking.html" class="book-tab active">
+      <span class="nav-icon">📅</span>
+      <span>Book</span>
+    </a>
+    <a href="services.html">
+      <span class="nav-icon">🔧</span>
+      <span>Services</span>
+    </a>
+    <a href="about.html">
+      <span class="nav-icon">ℹ️</span>
+      <span>About</span>
+    </a>
+    <a href="contact.html">
+      <span class="nav-icon">📞</span>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <footer>
+    <p>© 2025 SKYWIND Airconditioning & Refrigeration Services. All rights reserved.</p>
+  </footer>
+
+<script>
+  (function () {
+    const nav = document.querySelector('.bottom-nav');
+    if (!nav) return;
+    let lastY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentY = window.scrollY;
+      if (currentY > lastY && currentY > 60) {
+        // Scrolling DOWN — hide
+        nav.classList.add('hidden');
+      } else {
+        // Scrolling UP — show
+        nav.classList.remove('hidden');
+      }
+      lastY = currentY;
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>
