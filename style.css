@@ -323,6 +323,7 @@ h2 { font-size: 2rem; color: #044071; text-align: center; }
 }
 .modal.show { display: flex; }
 
+/* ── MODAL ───────────────────────────────────────────────── */
 .modal-content {
   background: rgb(199,221,255);
   padding: 40px;
@@ -332,7 +333,11 @@ h2 { font-size: 2rem; color: #044071; text-align: center; }
   width: 90%;
   box-shadow: 0 20px 60px rgba(0,0,0,0.3);
   animation: slideIn 0.4s ease;
+  color: #333; /* ← add this to reset body's white color inheritance */
 }
+
+.modal-content h3 { color: #0066e2; font-size: 2rem; margin-bottom: 20px; font-weight: 700; }
+.modal-content p  { color: #555;    font-size: 1.15rem; line-height: 1.8; margin-bottom: 30px; }
 
 @keyframes slideIn {
   from { transform: scale(0.7); opacity: 0; }
