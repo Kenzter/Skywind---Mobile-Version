@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - SKYWIND</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+</head>
+
+<script>
+  (function () {
+    const nav = document.querySelector('.bottom-nav');
+    if (!nav) return;
+    let lastY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentY = window.scrollY;
+      if (currentY > lastY && currentY > 60) {
+        // Scrolling DOWN — hide
+        nav.classList.add('hidden');
+      } else {
+        // Scrolling UP — show
+        nav.classList.remove('hidden');
+      }
+      lastY = currentY;
+    }, { passive: true });
+  })();
+</script>
+
+
+<body class="background-page">
+  <div class="loader">
+    <img src="skywindLogo.png" alt="Loading Logo">
+  </div>
+
+  <header>
+    <div class="logo-container">
+      <img src="skywindLogo.png" alt="Skywind Logo" class="logo">
+    </div>
+    <nav>
+      <span class="brand-name">SKYWIND AIRCONDITIONING & REFRIGERATION SERVICES</span>
+      <a href="booking.html">BOOK NOW</a>
+      <a href="services.html">SERVICES OFFERED</a>
+      <a href="about.html">ABOUT US</a>
+      <a href="contact.html">CONTACT US</a>
+    </nav>
+    <!-- Mobile: show brand name inline with logo -->
+    <span class="brand-name" style="display:none" id="mobile-brand">SKYWIND A&amp;R SERVICES</span>
+  </header>
+
+  <section class="content">
+    <h2>ABOUT US</h2>
+    <section class="about-content">
+      <p>Skywind Airconditioning & Refrigeration Services began its journey in 2012, built on a simple promise: to bring comfort, quality, and dependable cooling solutions to every Filipino home and business. What started as a small team with a big vision has grown into a trusted name in the HVAC-R industry—recognized for its commitment to excellence, honesty, and service that truly cares.</p><br>
+      <p>For more than a decade, Skywind has been driven by one core belief: comfort is not just a need—it's an experience. That's why we go beyond the usual installation and repair work. We focus on delivering solutions that make every space cooler, safer, and more efficient. Whether it's an airconditioning system for a family home or refrigeration units for a growing business, we bring the same level of dedication, skill, and passion into every project.</p><br>
+      <p>Our team is composed of experienced and highly trained technicians who embody Skywind's values—professional, reliable, and always striving for improvement. Armed with modern equipment, continuous learning, and a deep understanding of customer needs, we ensure that every service we provide is done right, done safely, and done to last. After years of serving communities and businesses, Skywind remains committed to our mission: to deliver comfort with integrity, innovation, and excellence.</p><br>
+      <p>From 2012 to today—and into the years ahead—we continue to be your partner in creating cool, comfortable, and efficient spaces where people can live better, work better, and breathe easier.</p><br>
+    </section>
+    <hr>
+
+    <h2>VISION</h2>
+    <section class="about-content">
+      <p>To be a leading and trusted provider of airconditioning and refrigeration solutions in the Philippines—known for excellence, reliability, and innovative service that ensures comfort, efficiency, and long-term value for every client.</p><br>
+    </section>
+    <hr>
+
+    <h2>MISSION</h2>
+    <section class="about-content">
+      <p>Skywind Airconditioning & Refrigeration Services is dedicated to delivering high-quality installation, repair, and maintenance services through skilled technicians, modern tools, and customer-centered service. We commit to providing safe, energy-efficient, and cost-effective solutions that enhance comfort, support business operations, and promote long-term system performance.</p><br>
+    </section>
+    <hr>
+
+    <h2>MEET OUR TEAM</h2>
+    <img src="our-team.png" alt="team image" class="team-image">
+  </section>
+
+  <!-- Mobile bottom tab bar -->
+  <nav class="bottom-nav">
+    <a href="index.html">
+      <span class="nav-icon">🏠</span>
+      <span>Home</span>
+    </a>
+    <a href="booking.html" class="book-tab">
+      <span class="nav-icon">📅</span>
+      <span>Book</span>
+    </a>
+    <a href="services.html">
+      <span class="nav-icon">🔧</span>
+      <span>Services</span>
+    </a>
+    <a href="about.html" class="active">
+      <span class="nav-icon">ℹ️</span>
+      <span>About</span>
+    </a>
+    <a href="contact.html">
+      <span class="nav-icon">📞</span>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <footer>
+    <p>© 2025 SKYWIND Airconditioning & Refrigeration Services. All rights reserved.</p>
+  </footer>
+</body>
+</html>

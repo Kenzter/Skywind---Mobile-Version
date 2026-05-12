@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SKYWIND</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+
+
+<body class="landing-page">
+
+  <!-- Main Landing Section -->
+  <section class="landing-container">
+    <img src="skywindLogo.png" alt="Skywind Logo" class="landing-logo">
+    <a href="booking.html" class="landing-btn">BOOK A SERVICE</a>
+  </section>
+
+
+  <script>
+  (function () {
+    const nav = document.querySelector('.bottom-nav');
+    if (!nav) return;
+    let lastY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentY = window.scrollY;
+      if (currentY > lastY && currentY > 60) {
+        // Scrolling DOWN — hide
+        nav.classList.add('hidden');
+      } else {
+        // Scrolling UP — show
+        nav.classList.remove('hidden');
+      }
+      lastY = currentY;
+    }, { passive: true });
+  })();
+</script>
+
+</body>
+</html>

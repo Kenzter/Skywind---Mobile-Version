@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <title>Registration</title>
+    <link rel="stylesheet" href="adminregister.css">
+    <img class="logo" src="logo.png">
+</header>
+<body>
+      <div class="loader">
+    <img src="logo.png" alt="Loading Logo">
+  </div>
+
+    <div class="registerbox">
+        <div class="register">
+            <form class="registerform" id="registerForm">
+                <h1>REGISTER ADMIN ACCOUNT</h1><br>
+
+                <!-- SUCCESS MESSAGE -->
+                <div id="success-container"></div>
+
+                <!-- ERROR MESSAGES -->
+                <div id="error-container"></div>
+
+                <div class="registername">
+                    <label>Name</label>
+                    <input type="text" name="name" id="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="registeremail">
+                    <label>E-mail</label>
+                    <input type="text" name="email" id="email" placeholder="abcde@gmail.com" required>
+                </div>
+
+                <div class="registerpassword">
+                    <label>Password</label>
+                    <input type="password" name="password" id="password" placeholder="*******" required>
+                </div>
+
+                <div class="registeraddress">
+                    <label>Address</label>
+                    <input type="text" name="address" id="address" placeholder="#st, brgy, city" required>
+                </div>
+
+                <div class="registercontact">
+                    <label>Contact</label>
+                    <input type="tel" name="contact" id="contact" placeholder="09XXXXXXXXX"
+                        maxlength="11" pattern="[0-9]{11}" required>
+                </div>
+
+                <div class="button-row">
+                    <button type="submit" class="btn-register">Register</button>
+                    <button type="button" class="btn-login" onclick="window.location.href='main.html'">
+                        Login
+                    </button>
+                    <div class="loader">
+                        <img src="logo.png" alt="Loading Logo">
+                    </div>
+                </div>
+                    <div class="loader">
+                        <img src="logo.png" alt="Loading Logo">
+                    </div>
+            </form>
+        </div>
+    </div>
+
+<script type="module">
+import { registerAdmin } from "./firebase-admin.js";
+
+const form             = document.getElementById("registerForm");
+const successContainer = document.getElementById("success-container");
+const errorContainer   = document.getElementById("error-container");
+
+function showSuccess(msg) {
+    successContainer.innerHTML =
+        `<p style="color:#CCFF00; font-size: 25px; font-weight:bold; text-align:center;">${msg}</p>`;
+    errorContainer.innerHTML = "";
+}
+
+function showError(msg) {
+    errorContainer.innerHTML =
+        `<div style="color:#FF2C2C; font-weight:bold; font-size: 25px; text-align:center;"><p>${msg}</p></div>`;
+    successContainer.innerHTML = "";
+}
+
+form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    successContainer.innerHTML = "";
+    errorContainer.innerHTML   = "";
+
+    const name     = document.getElementById("name").value.trim();
+    const email    = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const address  = document.getElementById("address").value.trim();
+    const contact  = document.getElementById("contact").value.trim();
+
+    try {
+        await registerAdmin({ name, email, password, address, contact });
+        showSuccess("Successfully registered! Go to Login.");
+        form.reset();
+    } catch (err) {
+        // Firebase error codes mapped to human-readable messages
+        if (err.code === "auth/email-already-in-use") {
+            showError("Email already registered.");
+        } else if (err.code === "auth/weak-password") {
+            showError("Password should be at least 6 characters.");
+        } else {
+            showError("Registration failed: " + err.message);
+        }
+    }
+});
+</script>
+
+</body>
+</html>
